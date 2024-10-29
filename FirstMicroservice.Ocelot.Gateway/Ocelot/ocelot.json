@@ -1,0 +1,33 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/todos/{everything}", //Burada todos bizim projemiz ve tüm methodlara istek atacağımızı dedik
+      "DownstreamScheme": "http", //Kullnacağımız http mi https mi onu dedik
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/todos/{everything}", //Bu client alınacak endpoiti verir
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ] //Bu methodlar buraya istek atabilir 
+    },
+    {
+      "DownstreamPathTemplate": "/categories/{everything}", //Burada todos bizim projemiz ve tüm methodlara istek atacağımızı dedik
+      "DownstreamScheme": "http", //Kullnacağımız http mi https mi onu dedik
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/categories/{everything}", //Bu client alınacak endpoiti verir
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ] //Bu methodlar buraya istek atabilir 
+    }
+
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
+
+}
